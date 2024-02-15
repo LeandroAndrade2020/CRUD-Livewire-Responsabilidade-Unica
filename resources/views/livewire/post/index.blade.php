@@ -1,4 +1,5 @@
 <div class="max-w-6xl mx-auto">
+    @php /** @var \App\Models\Post $post */ @endphp
     <div class="flex flex-col">
         <div class="p-2 m-2">
             <div class="w-full mx-auto sm:px-6 lg:px-8">
