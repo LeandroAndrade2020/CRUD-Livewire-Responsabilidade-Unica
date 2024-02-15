@@ -48,6 +48,14 @@
                                         <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
                                             <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                             <a href="#" class="ml-2 text-red-600 hover:text-red-900">Delete</a>
+                                    {{-- <x-button.circle primary
+                                            icon="pencil"
+                                            wire:click="update({{ $category->id }})"
+                                    />
+                                    <x-button.circle primary
+                                            icon="trash"
+                                            wire:click="delete({{ $category->id }})"
+                                    /> --}}
                                         </td>
                                     </tr>
 
