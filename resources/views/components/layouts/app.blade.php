@@ -29,6 +29,8 @@
             </main>
         </div>
 
+        <x-notifikasi />
+
         @stack('modals')
 
         @livewireScripts

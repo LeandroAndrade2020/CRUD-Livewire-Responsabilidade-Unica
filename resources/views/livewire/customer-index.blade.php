@@ -5,26 +5,11 @@
 
             <h1>Clientes</h1>
 
-            <x-button @click="$dispatch('notify', { title: 'enviando notificação..' })">Clique aqui!</x-button>
+            {{-- <x-button @click="$dispatch('notify', { title: 'success', message: 'Notificação de sucesso' })">Clique aqui!</x-button> --}}
 
-            <div
-                x-data="{open: false}"
-                x-show="open"
-                @notify.window="Toastify({
-                    text: 'This is a toast',
-                    duration: 3000,
-                    newWindow: true,
-                    close: true,
-                    gravity: 'top',
-                    position: 'right',
-                    stopOnFocus: true,
-                    style: {
-                        background: 'linear-gradient(to right, #00b09b, #96c93d)',
-                    },
-                }).showToast();"
-            >
+            <livewire:customer-create />
 
-            </div>
+
         </div>
     </div>
 </div>
