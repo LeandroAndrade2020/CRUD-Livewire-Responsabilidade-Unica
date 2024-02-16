@@ -31,12 +31,14 @@ class CustomerForm extends Form
 
     public function store()
     {
-        Customer::create($this->except('customer'));
+        Customer::create($this->except(['customer']));
+
+        $this->reset();
     }
 
     public function update()
     {
-        $this->customer->update($this->except('customer'));
+        $this->customer->update($this->except(['customer']));
     }
 
 }

@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Customer;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -21,6 +23,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory(10)->create();
-        Post::factory(100)->create();
+        Post::factory(10)->create();
+        Customer::factory(20)->create();
     }
 }
