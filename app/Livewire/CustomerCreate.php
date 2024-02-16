@@ -2,8 +2,9 @@
 
 namespace App\Livewire;
 
-use App\Livewire\Forms\CustomerForm;
 use Livewire\Component;
+use App\Livewire\CustomerTable;
+use App\Livewire\Forms\CustomerForm;
 
 class CustomerCreate extends Component
 {
@@ -21,6 +22,7 @@ class CustomerCreate extends Component
         ? $this->dispatch('notify', title: 'success', message: 'Notificação enviada com sucesso!')
         : $this->dispatch('notify', title: 'fail', message: 'Notificação não enviada!');
 
+        $this->dispatch('dispatch-customer-create-save')->to(CustomerTable::class);
     }
 
     public function render()

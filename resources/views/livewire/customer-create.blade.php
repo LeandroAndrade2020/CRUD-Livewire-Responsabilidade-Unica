@@ -22,7 +22,7 @@
                     <x-input-error for="form.email" class="mt-1"/>
                 </div>
                 <!-- Address -->
-                <div class="col-span-6">
+                <div class="col-span-12">
                     <x-label for="form.address" value="Endereço" />
                     <x-input id="form.address" class="block w-full mt-1" type="text" wire:model="form.address" require autocomplete="form.address"/>
                     <x-input-error for="form.address" class="mt-1"/>
