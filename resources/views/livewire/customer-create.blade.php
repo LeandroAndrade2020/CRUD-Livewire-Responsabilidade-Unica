@@ -1,7 +1,8 @@
 <div>
+    {{-- @dump($dados) --}}
     <x-button @click="$wire.set('modalCustomerCreate', true)">Create Customer</x-button>
 
-    <x-dialog-modal wire:model.live="modalCustomerCreate" submit="save">
+    <x-dialog-modal wire:model="modalCustomerCreate" submit="save">
         <x-slot name="title">
             Form Customer
         </x-slot>
@@ -21,8 +22,14 @@
                     <x-input id="form.email" class="block w-full mt-1" type="email" wire:model="form.email" require autocomplete="form.email"/>
                     <x-input-error for="form.email" class="mt-1"/>
                 </div>
+                <!-- Apoios -->
+                <div class="col-span-6">
+                    <x-ts-select.styled placeholder="Selecione.." label="APOIOS"
+                        wire:model.blur="form.apoios" 
+                        select="label:label|value:value"  :options="[1,2,3,4,5,6]" />
+                </div>
                 <!-- Address -->
-                <div class="col-span-12">
+                <div class="col-span-6">
                     <x-label for="form.address" value="Endereço" />
                     <x-input id="form.address" class="block w-full mt-1" type="text" wire:model="form.address" require autocomplete="form.address"/>
                     <x-input-error for="form.address" class="mt-1"/>
