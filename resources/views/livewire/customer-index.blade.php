@@ -5,6 +5,10 @@
 
             <livewire:customer-create />
 
+            <livewire:customer-edit />
+
+            <livewire:customer-delete />
+
             <livewire:customer-table />
 
         </div>

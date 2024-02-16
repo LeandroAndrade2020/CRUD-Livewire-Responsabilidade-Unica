@@ -19,8 +19,8 @@ class CustomerCreate extends Component
         $dados = $this->form->store();
 
         is_null($dados)
-        ? $this->dispatch('notify', title: 'success', message: 'Notificação enviada com sucesso!')
-        : $this->dispatch('notify', title: 'fail', message: 'Notificação não enviada!');
+        ? $this->dispatch('notify', title: 'success', message: 'Cadastro realizado com sucesso!')
+        : $this->dispatch('notify', title: 'fail', message: 'Cadastro não efetivado!');
 
         $this->dispatch('dispatch-customer-create-save')->to(CustomerTable::class);
     }
