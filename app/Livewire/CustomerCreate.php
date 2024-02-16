@@ -23,6 +23,8 @@ class CustomerCreate extends Component
         : $this->dispatch('notify', title: 'fail', message: 'Cadastro não efetivado!');
 
         $this->dispatch('dispatch-customer-create-save')->to(CustomerTable::class);
+
+        $this->modalCustomerCreate = false;
     }
 
     public function render()

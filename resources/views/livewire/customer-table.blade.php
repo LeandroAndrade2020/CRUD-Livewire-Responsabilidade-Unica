@@ -10,8 +10,6 @@
     <table class="min-w-full mt-2 divide-y divide-gray-200">
         <thead>
             <tr>
-                <th class="px-3 py-2 border whitespace-nowrap border-spacing-1">#</th>
-                <th class="px-3 py-2 border whitespace-nowrap border-spacing-1">Action</th>
                 <th @click="$wire.sortField('id')" class="px-3 py-2 border cursor-pointer whitespace-nowrap border-spacing-1">
                     <x-sort :$sortDirection :$sortBy :field="'id'"/>ID
                 </th>
@@ -24,29 +22,28 @@
                 <th @click="$wire.sortField('address')" class="px-3 py-2 border cursor-pointer whitespace-nowrap border-spacing-1">
                     <x-sort :$sortDirection :$sortBy :field="'address'"/>Address
                 </th>
+                <th class="px-3 py-2 border whitespace-nowrap border-spacing-1">Action</th>
             </tr>
             <tr>
-                <td class="px-3 py-2 border border-spacing-1"></td>
-                <td class="px-3 py-2 border border-spacing-1"></td>
                 <td class="px-3 py-2 border border-spacing-1"><x-input wire:model.live="form.id" type="search" class="w-full text-sm"/></td>
                 <td class="px-3 py-2 border border-spacing-1"><x-input wire:model.live="form.name" type="search" /></td>
                 <td class="px-3 py-2 border border-spacing-1"><x-input wire:model.live="form.email" type="search" /></td>
                 <td class="px-3 py-2 border border-spacing-1"><x-input wire:model.live="form.address" type="search" /></td>
+                <td class="px-3 py-2 border border-spacing-1"></td>
             </tr>
         </thead>
         <tbody>
             @isset($data)
                 @foreach ($data as $customer)
                     <tr>
-                        <td class="px-3 py-2 text-center border whitespace-nowrap border-spacing-1">{{ $loop->iteration }}.</td>
-                        <td class="px-3 py-2 border whitespace-nowrap border-spacing-1">
-                            <x-button @click="$dispatch('dispatch-customer-table-edit', { id: '{{ $customer->id}}' })" type="button">Editar</x-button>
-                            <x-danger-button @click="$dispatch('dispatch-customer-table-delete', {id: '{{ $customer->id }}', text: '{{ $customer->name }}' })         delete">Delete</x-danger-button>
-                        </td>
                         <td class="px-3 py-2 text-center border whitespace-nowrap border-spacing-1">{{ $customer->id }}</td>
                         <td class="px-3 py-2 border whitespace-nowrap border-spacing-1">{{ $customer->name }}</td>
                         <td class="px-3 py-2 border whitespace-nowrap border-spacing-1">{{ $customer->email }}</td>
                         <td class="px-3 py-2 border whitespace-nowrap border-spacing-1">{{ substr($customer->address ,0 ,10)}}</td>
+                        <td class="px-3 py-2 border whitespace-nowrap border-spacing-1">
+                            <x-button @click="$dispatch('dispatch-customer-table-edit', { id: '{{ $customer->id}}' })" type="button">Editar</x-button>
+                            <x-danger-button @click="$dispatch('dispatch-customer-table-delete', {id: '{{ $customer->id }}', name: '{{ $customer->name }}' })" >Delete</x-danger-button>
+                        </td>
                     </tr>
                 @endforeach
             @endisset

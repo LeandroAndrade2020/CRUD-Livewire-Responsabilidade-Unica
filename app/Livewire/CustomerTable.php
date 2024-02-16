@@ -17,12 +17,13 @@ class CustomerTable extends Component
     public CustomerForm $form;
 
     public
-        $paginate,
+        $paginate = 5,
         $sortBy = 'customers.id',
         $sortDirection = 'desc';
 
     #[On('dispatch-customer-create-save')]
     #[On('dispatch-customer-create-edit')]
+    #[On('dispatch-customer-delete-del')]
     public function render()
     {
         return view('livewire.customer-table', [

@@ -4,9 +4,7 @@ namespace App\Livewire\Forms;
 
 use Livewire\Form;
 use App\Models\Customer;
-use Livewire\Attributes\Locked;
 use Livewire\Attributes\Rule;
-use Livewire\Attributes\Validate;
 
 class CustomerForm extends Form
 {

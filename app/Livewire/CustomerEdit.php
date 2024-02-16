@@ -32,6 +32,8 @@ class CustomerEdit extends Component
         : $this->dispatch('notify', title: 'fail', message: 'Cadastro não atualizado!');
 
         $this->dispatch('dispatch-customer-create-edit')->to(CustomerTable::class);
+
+        $this->modalCustomerEdit = false;
     }
     public function render()
     {
