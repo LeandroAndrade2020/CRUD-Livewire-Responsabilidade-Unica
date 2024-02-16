@@ -5,17 +5,25 @@
             <tr>
                 <th class="px-3 py-2 border whitespace-nowrap border-spacing-1">#</th>
                 <th class="px-3 py-2 border whitespace-nowrap border-spacing-1">Action</th>
-                <th class="px-3 py-2 border whitespace-nowrap border-spacing-1">ID</th>
-                <th class="px-3 py-2 border whitespace-nowrap border-spacing-1">Name</th>
-                <th class="px-3 py-2 border whitespace-nowrap border-spacing-1">Email</th>
-                <th class="px-3 py-2 border whitespace-nowrap border-spacing-1">Address</th>
+                <th @click="$wire.sortField('id')" class="px-3 py-2 border cursor-pointer whitespace-nowrap border-spacing-1">
+                    <x-sort :$sortDirection :$sortBy :field="'id'"/>ID
+                </th>
+                <th @click="$wire.sortField('name')" class="px-3 py-2 border cursor-pointer whitespace-nowrap border-spacing-1">
+                    <x-sort :$sortDirection :$sortBy :field="'name'"/>Name
+                </th>
+                <th @click="$wire.sortField('email')" class="px-3 py-2 border cursor-pointer whitespace-nowrap border-spacing-1">
+                    <x-sort :$sortDirection :$sortBy :field="'email'"/>Email
+                </th>
+                <th @click="$wire.sortField('address')" class="px-3 py-2 border cursor-pointer whitespace-nowrap border-spacing-1">
+                    <x-sort :$sortDirection :$sortBy :field="'address'"/>Address
+                </th>
             </tr>
         </thead>
         <tbody>
             @isset($data)
                 @foreach ($data as $customer)
                     <tr>
-                        <td class="px-3 py-2 text-center border whitespace-nowrap border-spacing-1">{{ $loop->iteration }}</td>
+                        <td class="px-3 py-2 text-center border whitespace-nowrap border-spacing-1">{{ $loop->iteration }}.</td>
                         <td class="px-3 py-2 border whitespace-nowrap border-spacing-1">
                             <x-button wire:click="edit({{ $customer->id }})">Edit</x-button>
                         </td>
@@ -28,4 +36,7 @@
             @endisset
         </tbody>
     </table>
+    <div class="mt-3">
+        {{ $data->onEachSide(1)->links() }}
+    </div>
 </div>
