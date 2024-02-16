@@ -4,7 +4,7 @@ namespace App\Livewire\Forms;
 
 use Livewire\Form;
 use App\Models\Customer;
-use Livewire\Attributes\Rule;
+use Livewire\Attributes\Validate;
 
 class CustomerForm extends Form
 {
@@ -13,13 +13,13 @@ class CustomerForm extends Form
     // #[Locked]
     public $id;
 
-    #[Rule('required|min:3')]
+    #[Validate('required|min:3', as: 'nome')]
     public $name;
 
-    #[Rule('required|email', as: 'E-mail')]
+    #[Validate('required|email', as: 'e-mail')]
     public $email;
 
-    #[Rule('required|min:3', as: 'Endereço')]
+    #[Validate('required|min:3', as: 'endereço')]
     public $address;
 
     public function setCustomer(Customer $customer) //Armazena ou Atualiza automaticamente preenche os campos
@@ -33,7 +33,7 @@ class CustomerForm extends Form
 
     public function store()
     {
-        Customer::create($this->except('customer'));
+        Customer::create($this->except(['customer']));
 
         $this->reset();
     }
