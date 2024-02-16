@@ -17,7 +17,7 @@ class CustomerTable extends Component
     public CustomerForm $form;
 
     public
-        $paginate = 2,
+        $paginate,
         $sortBy = 'customers.id',
         $sortDirection = 'desc';
 
@@ -27,9 +27,9 @@ class CustomerTable extends Component
         return view('livewire.customer-table', [
 
             'data' => Customer::where('id', 'like', '%'.$this->form->id.'%')
-                // ->where('name', 'like', '%'.$this->form->name.'%')
-                // ->where('email', 'like', '%'.$this->form->email.'%')
-                // ->where('address', 'like', '%'.$this->form->address.'%')
+                ->where('name', 'like', '%'.$this->form->name.'%')
+                ->where('email', 'like', '%'.$this->form->email.'%')
+                ->where('address', 'like', '%'.$this->form->address.'%')
                 ->orderBy($this->sortBy, $this->sortDirection)
                 ->paginate($this->paginate),
         ]);

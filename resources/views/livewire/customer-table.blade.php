@@ -1,6 +1,13 @@
 <div>
     {{-- @dump($data) --}}
-    <table class="min-w-full mt-4 divide-y divide-gray-200">
+    <x-select wire:model.live="paginate" class='mt-4 text-sm border'>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </x-select>
+    <table class="min-w-full mt-2 divide-y divide-gray-200">
         <thead>
             <tr>
                 <th class="px-3 py-2 border whitespace-nowrap border-spacing-1">#</th>
@@ -17,6 +24,14 @@
                 <th @click="$wire.sortField('address')" class="px-3 py-2 border cursor-pointer whitespace-nowrap border-spacing-1">
                     <x-sort :$sortDirection :$sortBy :field="'address'"/>Address
                 </th>
+            </tr>
+            <tr>
+                <td class="px-3 py-2 border border-spacing-1"></td>
+                <td class="px-3 py-2 border border-spacing-1"></td>
+                <td class="px-3 py-2 border border-spacing-1"><x-input wire:model.live="form.id" type="search" class="w-full text-sm"/></td>
+                <td class="px-3 py-2 border border-spacing-1"><x-input wire:model.live="form.name" type="search" /></td>
+                <td class="px-3 py-2 border border-spacing-1"><x-input wire:model.live="form.email" type="search" /></td>
+                <td class="px-3 py-2 border border-spacing-1"><x-input wire:model.live="form.address" type="search" /></td>
             </tr>
         </thead>
         <tbody>

@@ -16,13 +16,13 @@ class CustomerForm extends Form
     public $id;
 
     #[Rule('required|min:3', as: 'Name')]
-    public ?string $name;
+    public $name;
 
     #[Rule('required|email', as: 'Email')]
-    public ?string $email;
+    public $email;
 
     #[Rule('required|min:3', as: 'Address')]
-    public ?string $address;
+    public $address;
 
     public function setCustomer(Customer $customer) //Armazena ou Atualiza automaticamente preenche os campos
     {
