@@ -13,13 +13,13 @@ class CustomerForm extends Form
     // #[Locked]
     public $id;
 
-    #[Rule('required|min:3', as: 'Name')]
+    #[Rule('required|min:3')]
     public $name;
 
-    #[Rule('required|email', as: 'Email')]
+    #[Rule('required|email', as: 'E-mail')]
     public $email;
 
-    #[Rule('required|min:3', as: 'Address')]
+    #[Rule('required|min:3', as: 'Endereço')]
     public $address;
 
     public function setCustomer(Customer $customer) //Armazena ou Atualiza automaticamente preenche os campos
@@ -33,7 +33,7 @@ class CustomerForm extends Form
 
     public function store()
     {
-        Customer::create($this->except(['customer']));
+        Customer::create($this->except('customer'));
 
         $this->reset();
     }
