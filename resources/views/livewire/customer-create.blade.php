@@ -25,8 +25,15 @@
                 <!-- Apoios -->
                 <div class="col-span-6">
                     <x-ts-select.styled placeholder="Selecione.." label="APOIOS"
-                        wire:model.blur="form.apoios" 
-                        select="label:label|value:value"  :options="[1,2,3,4,5,6]" />
+                        wire:model="form.apoios"
+                        :options="[1,2,3,4,5,6]" multiple />
+                        {{-- :options="[
+                            ['label' => 'TALL', 'value' => 1],
+                            ['label' => 'LIVT', 'value' => 2],
+                            ['label' => 'LIVT2', 'value' => 3],
+                            ['label' => 'LIVT3', 'value' => 4],
+                            ['label' => 'LIVT4', 'value' => 5],
+                        ]" select="label:label|value:value"/> --}}
                 </div>
                 <!-- Address -->
                 <div class="col-span-6">
@@ -36,6 +43,7 @@
                 </div>
 
             </div>
+            @dump($form->apoios)
         </x-slot>
 
         <x-slot name="footer">

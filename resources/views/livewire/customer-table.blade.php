@@ -22,6 +22,7 @@
                 <th @click="$wire.sortField('address')" class="px-3 py-2 border cursor-pointer whitespace-nowrap border-spacing-1">
                     <x-sort :$sortDirection :$sortBy :field="'address'"/>Address
                 </th>
+                <th  class="px-3 py-2 border cursor-pointer whitespace-nowrap border-spacing-1">Apoios</th>
                 <th class="px-3 py-2 border whitespace-nowrap border-spacing-1">Action</th>
             </tr>
             <tr>
@@ -29,6 +30,7 @@
                 <td class="px-3 py-2 border border-spacing-1"><x-input wire:model.live="form.name" type="search" /></td>
                 <td class="px-3 py-2 border border-spacing-1"><x-input wire:model.live="form.email" type="search" /></td>
                 <td class="px-3 py-2 border border-spacing-1"><x-input wire:model.live="form.address" type="search" /></td>
+                <td class="px-3 py-2 border border-spacing-1"></td>
                 <td class="px-3 py-2 border border-spacing-1"></td>
             </tr>
         </thead>
@@ -40,6 +42,7 @@
                         <td class="px-3 py-2 border whitespace-nowrap border-spacing-1">{{ $customer->name }}</td>
                         <td class="px-3 py-2 border whitespace-nowrap border-spacing-1">{{ $customer->email }}</td>
                         <td class="px-3 py-2 border whitespace-nowrap border-spacing-1">{{ substr($customer->address ,0 ,10)}}</td>
+                        <td class="px-3 py-2 border whitespace-nowrap border-spacing-1">{{ $customer->apoios }}</td>
                         <td class="px-3 py-2 border whitespace-nowrap border-spacing-1">
                             <x-button @click="$dispatch('dispatch-customer-table-edit', { id: '{{ $customer->id}}' })" type="button">Editar</x-button>
                             <x-danger-button @click="$dispatch('dispatch-customer-table-delete', {id: '{{ $customer->id }}', name: '{{ $customer->name }}' })" >Delete</x-danger-button>

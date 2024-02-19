@@ -16,4 +16,8 @@ class Customer extends Model
         'apoios',
     ];
 
+    protected $casts = [
+        'apoios' => 'array',
+    ];
+
 }
