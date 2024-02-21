@@ -6,29 +6,38 @@
 
         <x-slot name="content">
             <div class="grid grid-cols-12 gap-4">
-
-                <!-- Name -->
-                <div class="col-span-6">
-                    <x-label for="form.name" value="Nome" />
-                    <x-input id="form.name" class="block w-full mt-1" type="text" wire:model="form.name" require autocomplete="form.name"/>
-                    <x-input-error for="form.name" class="mt-1"/>
-                </div>
-                <!-- Email -->
-                <div class="col-span-6">
-                    <x-label for="form.email" value="Email" />
-                    <x-input id="form.email" class="block w-full mt-1" type="email" wire:model="form.email" require autocomplete="form.email"/>
-                    <x-input-error for="form.email" class="mt-1"/>
-                </div>
-                <!-- Address -->
                 <div class="col-span-12">
-                    <x-label for="form.address" value="Endereço" />
-                    <x-input id="form.address" class="block w-full mt-1" type="text" wire:model="form.address" require autocomplete="form.address"/>
-                    <x-input-error for="form.address" class="mt-1"/>
+                    <x-ts-input label="Nome" name="name" wire:model="form.name" />
                 </div>
-
+                <div class="col-span-12">
+                    <x-ts-input label="E-mail" name="email" wire:model="form.email" />
+                </div>
+                <div class="col-span-12">
+                    <x-ts-input label="Endereço" name="address" wire:model="form.address" />
+                </div>
+                <div class="col-span-12">
+                    <x-ts-select.styled placeholder="Selecione.."
+                    label="APOIOS" wire:model.live='form.apoios'
+                    select="label:label|value:value" multiple
+                    :options="[
+                            ['label' => 'Não necessita ', 'value' => 1],
+                            ['label' => 'Necessita ', 'value' => 2],
+                            ['label' => 'AAE / ADI ', 'value' => 3],
+                            ['label' => 'Escriba', 'value' => 4],
+                            ['label' => 'Estagiário', 'value' => 5],
+                            ['label' => 'Interprete de LIBRAS', 'value' => 6],
+                            ['label' => 'Leitor ', 'value' => 7],
+                            ['label' => 'Orientador ', 'value' => 8],
+                            ['label' => 'Prof. Interlocutor de LIBRAS', 'value' => 9],
+                            ['label' => 'Quando necessário', 'value' => 10],
+                            ['label' => 'Solicitado ADI/AAE ', 'value' => 11],
+                            ['label' => 'Solicitado Estagiário', 'value' => 12],
+                            ['label' => 'Solicitado Interprete de LIBRAS ', 'value' => 13],
+                        ]" />
+                        {{-- @dump($form->apoios) --}}
+                </div>
             </div>
         </x-slot>
-
         <x-slot name="footer">
             <x-secondary-button @click="$wire.set('modalCustomerEdit', false)" wire:loading.attr="disabled">
                 {{ __('Cancel') }}

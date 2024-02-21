@@ -18,7 +18,7 @@ class CustomerTable extends Component
 
     public
         $paginate = 5,
-        $sortBy = 'customers.id',
+        $sortBy = 'customers.updated_at',
         $sortDirection = 'desc';
 
     #[On('dispatch-customer-create-save')]

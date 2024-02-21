@@ -15,11 +15,8 @@
                     <x-nav-link href="{{ route('dashboard') }}" wire:navigate :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('posts.index') }}" wire:navigate :active="request()->routeIs('posts.index')">
-                        {{ __('posts.index') }}
-                    </x-nav-link>
                     <x-nav-link href="{{ route('customer.index') }}" wire:navigate :active="request()->routeIs('customer.index')">
-                        {{ __('customer.index') }}
+                        {{ __('Clientes') }}
                     </x-nav-link>
                 </div>
             </div>

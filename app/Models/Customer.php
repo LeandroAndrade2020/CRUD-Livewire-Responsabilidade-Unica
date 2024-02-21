@@ -20,4 +20,24 @@ class Customer extends Model
         'apoios' => 'array',
     ];
 
+    public function scopePesquisa($query, $pesquisa)
+    {
+        if ($pesquisa === '') {
+            return;
+        }
+
+        return $query
+            ->orWhere('form.id', 'LIKE', "%{$pesquisa}%")
+            ->orWhere('form.name', 'LIKE', "%{$pesquisa}%")
+            ->orWhere('form.address', 'LIKE', "%{$pesquisa}%");
+    }
+
+    // public function scopeEscola_id($query, $escola_id)
+    // {
+    //     if (!empty($escola_id)) {
+    //         $query->where('escola_id', $escola_id);
+    //     }
+
+    //     return $query;
+    // }
 }

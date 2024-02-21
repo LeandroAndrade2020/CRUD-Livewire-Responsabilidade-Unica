@@ -1,7 +1,6 @@
 <?php
 
 use App\Livewire\CustomerIndex;
-use App\Livewire\Post;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,7 +16,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('posts', Post\Index::class)->name('posts.index');
     Route::get('customer', CustomerIndex::class)->name('customer.index');
 
 });

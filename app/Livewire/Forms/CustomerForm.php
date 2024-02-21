@@ -13,7 +13,7 @@ class CustomerForm extends Form
     // #[Locked]
     public $id;
 
-    #[Validate('required|min:3', as: 'nome')]
+    #[Validate('required', as: 'nome')]
     public $name;
 
     #[Validate('required|email', as: 'e-mail')]
@@ -22,8 +22,8 @@ class CustomerForm extends Form
     #[Validate('required|min:3', as: 'endereço')]
     public $address;
 
-    // #[Validate('required', as: 'apoios')]
-    public array $apoios = [];
+    #[Validate('required', as: 'apoios')]
+    public $apoios = [];
 
     public function setCustomer(Customer $customer) //Armazena ou Atualiza automaticamente preenche os campos
     {
@@ -33,7 +33,7 @@ class CustomerForm extends Form
         $this->email = $customer->email;
         $this->address = $customer->address;
 
-        $this->apoios = [$customer->apoios];
+        $this->apoios = $customer->apoios;
     }
 
     public function store()

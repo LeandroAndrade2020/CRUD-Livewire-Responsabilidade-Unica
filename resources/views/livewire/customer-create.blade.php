@@ -1,6 +1,6 @@
 <div>
     {{-- @dump($dados) --}}
-    <x-button @click="$wire.set('modalCustomerCreate', true)">Create Customer</x-button>
+    <x-ts-button @click="$wire.set('modalCustomerCreate', true)" color="secondary">+</x-ts-button>
 
     <x-dialog-modal wire:model="modalCustomerCreate" submit="save">
         <x-slot name="title">
@@ -9,41 +9,36 @@
 
         <x-slot name="content">
             <div class="grid grid-cols-12 gap-4">
-
-                <!-- Name -->
-                <div class="col-span-6">
-                    <x-label for="form.name" value="Nome" />
-                    <x-input id="form.name" class="block w-full mt-1" type="text" wire:model="form.name" require autocomplete="form.name"/>
-                    <x-input-error for="form.name" class="mt-1"/>
+                <div class="col-span-12">
+                    <x-ts-input label="Nome" name="name" wire:model="form.name" />
                 </div>
-                <!-- Email -->
-                <div class="col-span-6">
-                    <x-label for="form.email" value="Email" />
-                    <x-input id="form.email" class="block w-full mt-1" type="email" wire:model="form.email" require autocomplete="form.email"/>
-                    <x-input-error for="form.email" class="mt-1"/>
+                <div class="col-span-12">
+                    <x-ts-input label="E-mail" name="email" wire:model="form.email" />
                 </div>
-                <!-- Apoios -->
-                <div class="col-span-6">
-                    <x-ts-select.styled placeholder="Selecione.." label="APOIOS"
-                        wire:model="form.apoios"
-                        :options="[1,2,3,4,5,6]" multiple />
-                        {{-- :options="[
-                            ['label' => 'TALL', 'value' => 1],
-                            ['label' => 'LIVT', 'value' => 2],
-                            ['label' => 'LIVT2', 'value' => 3],
-                            ['label' => 'LIVT3', 'value' => 4],
-                            ['label' => 'LIVT4', 'value' => 5],
-                        ]" select="label:label|value:value"/> --}}
+                <div class="col-span-12">
+                    <x-ts-input label="Endereço" name="address" wire:model="form.address" />
                 </div>
-                <!-- Address -->
-                <div class="col-span-6">
-                    <x-label for="form.address" value="Endereço" />
-                    <x-input id="form.address" class="block w-full mt-1" type="text" wire:model="form.address" require autocomplete="form.address"/>
-                    <x-input-error for="form.address" class="mt-1"/>
+                <div class="col-span-12">
+                    <x-ts-select.styled placeholder="Selecione.."
+                    label="APOIOS" wire:model.live='form.apoios'
+                    select="label:label|value:value" multiple
+                    :options="[
+                            ['label' => 'Não necessita ', 'value' => 1],
+                            ['label' => 'Necessita ', 'value' => 2],
+                            ['label' => 'AAE / ADI ', 'value' => 3],
+                            ['label' => 'Escriba', 'value' => 4],
+                            ['label' => 'Estagiário', 'value' => 5],
+                            ['label' => 'Interprete de LIBRAS', 'value' => 6],
+                            ['label' => 'Leitor ', 'value' => 7],
+                            ['label' => 'Orientador ', 'value' => 8],
+                            ['label' => 'Prof. Interlocutor de LIBRAS', 'value' => 9],
+                            ['label' => 'Quando necessário', 'value' => 10],
+                            ['label' => 'Solicitado ADI/AAE ', 'value' => 11],
+                            ['label' => 'Solicitado Estagiário', 'value' => 12],
+                            ['label' => 'Solicitado Interprete de LIBRAS ', 'value' => 13],
+                        ]" />
                 </div>
-
             </div>
-            @dump($form->apoios)
         </x-slot>
 
         <x-slot name="footer">
