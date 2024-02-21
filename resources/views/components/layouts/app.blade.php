@@ -22,7 +22,7 @@
     <body class="font-sans antialiased">
         <x-banner />
 
-        <div class="min-h-screen bg-pink-700 bg-opacity-75 dark:bg-gray-900">
+        <div class="max-h-full min-h-screen bg-opacity-75 bg-cyan-700 dark:bg-gray-900">
             @livewire('navigation-menu')
 
             <!-- Page Content -->
