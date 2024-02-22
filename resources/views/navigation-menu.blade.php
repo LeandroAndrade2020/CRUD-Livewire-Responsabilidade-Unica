@@ -15,9 +15,11 @@
                     <x-nav-link href="{{ route('dashboard') }}" wire:navigate :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @can('admin_access')
                     <x-nav-link href="{{ route('customer.index') }}" wire:navigate :active="request()->routeIs('customer.index')">
                         {{ __('Clientes') }}
                     </x-nav-link>
+                    @endcan
                 </div>
             </div>
 

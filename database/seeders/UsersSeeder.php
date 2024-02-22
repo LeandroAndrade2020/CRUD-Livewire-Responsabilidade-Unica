@@ -28,8 +28,8 @@ class UsersSeeder extends Seeder
             ],
             1 => [
                 'id' => 2,
-                'name' => 'Demanda Seduc',
-                'email' => 'demanda@demanda.com',
+                'name' => 'Gestor Seduc',
+                'email' => 'gestor@gestor.com',
                 'password' => '$2y$10$CYDf53IaWuqWcjeSNfKxWOd7fy/flhk/ABjBzkIBGaPZCIjrqyU.a',
                 'matricula' => 12346,
                 'data_nascimento' => '2022-12-22',
