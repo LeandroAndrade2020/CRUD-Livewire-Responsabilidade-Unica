@@ -20,6 +20,11 @@ return new class extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('cpf')->nullable();
+            $table->integer('matricula')->unique();
+            $table->date('data_nascimento')->nullable();
+            $table->foreignId('escola_id')->nullable()->constrained();
+            $table->foreignId('cargo_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

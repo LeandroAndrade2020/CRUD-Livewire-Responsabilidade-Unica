@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Forms;
 
-use Livewire\Form;
 use App\Models\Customer;
 use Livewire\Attributes\Validate;
+use Livewire\Form;
 
 class CustomerForm extends Form
 {
@@ -47,5 +47,4 @@ class CustomerForm extends Form
     {
         $this->customer->update($this->except(['customer']));
     }
-
 }

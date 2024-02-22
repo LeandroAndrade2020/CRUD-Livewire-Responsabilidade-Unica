@@ -2,10 +2,10 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
+use App\Livewire\Forms\CustomerForm;
 use App\Models\Customer;
 use Livewire\Attributes\On;
-use App\Livewire\Forms\CustomerForm;
+use Livewire\Component;
 
 class CustomerEdit extends Component
 {
@@ -35,6 +35,7 @@ class CustomerEdit extends Component
 
         $this->modalCustomerEdit = false;
     }
+
     public function render()
     {
         return view('livewire.customer-edit');

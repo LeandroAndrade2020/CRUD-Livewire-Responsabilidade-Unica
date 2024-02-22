@@ -29,6 +29,10 @@ class UserFactory extends Factory
             'two_factor_recovery_codes' => null,
             'remember_token' => Str::random(10),
             'profile_photo_path' => null,
+            'matricula' => random_int(10000, 30000),
+            'data_nascimento' => '2022-12-22',
+            'escola_id' => random_int(1, 60),
+            'cargo_id' => random_int(1, 17),
             'current_team_id' => null,
         ];
     }
@@ -48,7 +52,7 @@ class UserFactory extends Factory
     /**
      * Indicate that the user should have a personal team.
      */
-    public function withPersonalTeam(callable $callback = null): static
+    public function withPersonalTeam(?callable $callback = null): static
     {
         if (! Features::hasTeamFeatures()) {
             return $this->state([]);
