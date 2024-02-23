@@ -29,8 +29,8 @@ class CustomerForm extends Form
     {
         $this->customer = $customer;
 
-        $this->name = $customer->name;
-        $this->email = $customer->email;
+        $this->name    = $customer->name;
+        $this->email   = $customer->email;
         $this->address = $customer->address;
 
         $this->apoios = $customer->apoios;

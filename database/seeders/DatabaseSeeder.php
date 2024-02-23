@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersSeeder::class);
 
         User::factory(7)->create();
-        
+
         $this->call(RoleUserSeeder::class);
 
         Customer::factory(20)->create();

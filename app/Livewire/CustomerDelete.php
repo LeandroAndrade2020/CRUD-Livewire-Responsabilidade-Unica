@@ -3,8 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Customer;
-use Livewire\Attributes\Locked;
-use Livewire\Attributes\On;
+use Livewire\Attributes\{Locked, On};
 use Livewire\Component;
 
 class CustomerDelete extends Component
@@ -20,7 +19,7 @@ class CustomerDelete extends Component
     #[On('dispatch-customer-table-delete')]
     public function set_customer($id, $name)
     {
-        $this->id = $id;
+        $this->id   = $id;
         $this->name = $name;
 
         $this->modalCustomerDelete = true;

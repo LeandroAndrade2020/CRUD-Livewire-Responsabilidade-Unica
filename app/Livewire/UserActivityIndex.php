@@ -24,7 +24,7 @@ class UserActivityIndex extends Component
 
     public function render()
     {
-        if(auth()->user()->roles()->first()->title === 'Admin') {
+        if (auth()->user()->roles()->first()->title === 'Admin') {
             $users = User::pesquisa($this->search)
                 ->escola_id($this->escola_id)
                 ->orderBy('ultimo_acesso_at', 'desc')->paginate($this->perPage);
@@ -36,7 +36,8 @@ class UserActivityIndex extends Component
 
         $escolas = Escola::get(['id', 'name']);
 
-        return view('livewire.user-activity-index',
+        return view(
+            'livewire.user-activity-index',
             compact('users', 'escolas')
         );
     }

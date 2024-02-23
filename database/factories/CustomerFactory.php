@@ -17,10 +17,10 @@ class CustomerFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->safeEmail(),
+            'name'    => fake()->name(),
+            'email'   => fake()->safeEmail(),
             'address' => fake()->address(),
-            'apoios' => '[1,2,3,4]',
+            'apoios'  => '[1,2,3,4]',
         ];
     }
 }
