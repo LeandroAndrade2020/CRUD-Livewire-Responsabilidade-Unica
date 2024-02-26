@@ -8,15 +8,32 @@
         </x-slot>
 
         <x-slot name="content">
+
             <div class="grid grid-cols-12 gap-4">
-                
-                <x-ts-errors />
+                <div class="col-span-12">
+                    <x-ts-errors />
+                </div>
 
                 <div class="col-span-12">
-                    <x-ts-input label="Nome" name="name" wire:model="form.name" />
+                    <x-ts-input label="Nome" wire:model="form.name" />
                 </div>
-                <div class="col-span-12">
-                    <x-ts-input label="E-mail" name="email" wire:model="form.email" />
+                <div class="col-span-6">
+                    <x-ts-input label="E-mail" wire:model="form.email" />
+                </div>
+                <div class="col-span-6">
+                    <x-model-escolas />
+                </div>
+                <div class="col-span-6">
+                    <x-model-cargos/>
+                </div>
+                <div class="col-span-6">
+                    <x-ts-input label="Matrícula" wire:model="form.matricula" />
+                </div>
+                <div class="col-span-6">
+                    <x-ts-input label="CPF" wire:model="form.cpf" x-mask="999.999.999-99" />
+                </div>
+                <div class="col-span-6">
+                    <x-ts-input label="Data de nascimento" wire:model="form.data_nascimento" type="date" />
                 </div>
             </div>
         </x-slot>

@@ -19,21 +19,21 @@
                         <table class="w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50 dark:bg-gray-600 dark:text-gray-200">
                                 <tr>
-                                    <x-th>Escola</x-th>
-                                    <x-th>Nome</x-th>
-                                    <x-th>Último acesso</x-th>
-                                    <x-th class="text-center">Status</x-th>
+                                    <x-table-th>Escola</x-table-th>
+                                    <x-table-th>Nome</x-table-th>
+                                    <x-table-th>Último acesso</x-table-th>
+                                    <x-table-th class="text-center">Status</x-table-th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-800">
                                 @foreach ($users as $user)
                                 <tr class="my-4">
-                                    <x-td>{{ $user->escola->name }}</x-td>
-                                    <x-td>{{ $user->name }}</x-td>
-                                    <x-td>{{ Carbon\Carbon::parse($user->ultimo_acesso_at)->diffForHumans() }}</x-td>
-                                    <x-td class="text-{{ $user->ultimo_acesso_at >= now()->subMinutes(2) ? 'teal' : 'red' }}-500  text-center">
+                                    <x-table-td>{{ $user->escola->name }}</x-table-td>
+                                    <x-table-td>{{ $user->name }}</x-table-td>
+                                    <x-table-td>{{ Carbon\Carbon::parse($user->ultimo_acesso_at)->diffForHumans() }}</x-table-td>
+                                    <x-table-td class="text-{{ $user->ultimo_acesso_at >= now()->subMinutes(2) ? 'teal' : 'red' }}-500  text-center">
                                         {{ $user->ultimo_acesso_at >= now()->subMinutes(2) ? 'Online' : 'OffLine'}}
-                                    </x-td>
+                                    </x-table-td>
                                 </tr>
                                 @endforeach
                             </tbody>
