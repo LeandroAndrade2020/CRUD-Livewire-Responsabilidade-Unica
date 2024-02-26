@@ -32,19 +32,12 @@
                 <div class="col-span-6">
                     <x-ts-input label="Data de nascimento" wire:model="form.data_nascimento" type="date" />
                 </div>
-                <div class="col-span-2 sm:col-span-3">
-                    {{-- <div class="w-full mb-3 space-y-2 text-xs">
-                        <label for="selectedRoles" class="text-gray-700 dark:text-gray-200">Roles</label>
-                        <select wire:model.live="selectedRoles"
-                            class="py-2 mt-2 space-y-0.5 text-gray-700 border-gray-300 rounded-md shadow-md overscroll-contain soft-scrollbar form-multiselect dark:bg-gray-600 dark:text-gray-300 dark:border-gray-600 ">
-                            @foreach($roles as $id => $role)
-                            <option value="{{ $id }}" {{ in_array($id, old('roles', $user->roles->pluck('id')->toArray())) ? '
-                                selected' : '' }}>
-                                {{ $role }}
-                            </option>
-                            @endforeach
-                        </select>
-                    </div> --}}
+                <div class="col-span-2 sm:col-span-6">
+                    <x-ts-select.styled wire:model="form.selectedRoles" :options="[
+                        ['label' => 'Admin', 'value' => 1],
+                        ['label' => 'Diretor', 'value' => 2],
+                        ['label' => 'Demanda', 'value' => 3],
+                    ]" select="label:label|value:value" />
                 </div>
             </div>
         </x-slot>

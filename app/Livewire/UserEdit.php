@@ -12,6 +12,8 @@ class UserEdit extends Component
 {
     public UserForm $form;
 
+    public $user;
+
     public $modalEdit = false;
 
     #[On('dispatch-user-table-edit')]
@@ -40,8 +42,11 @@ class UserEdit extends Component
     {
         $roles = Role::all();
 
+        $user = User::find($this->user);
+
         return view('livewire.user-edit', [
             'roles' => $roles,
+            'user'  => $user,
         ]);
     }
 }

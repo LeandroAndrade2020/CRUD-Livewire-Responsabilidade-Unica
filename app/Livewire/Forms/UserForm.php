@@ -34,11 +34,11 @@ class UserForm extends Form
     #[Validate('required|date', as: 'data de nascimento')]
     public $data_nascimento = '';
 
-    public $selectedRoles = [];
+    public $selectedRoles = '';
 
     public function setUser(User $user) //Armazena ou Atualiza automaticamente preenche os campos
     {
-        $this->user = $user;
+        $this->user = $user->load('roles');
 
         $this->name            = $user->name;
         $this->email           = $user->email;
@@ -48,6 +48,7 @@ class UserForm extends Form
         $this->cpf             = $user->cpf;
         $this->data_nascimento = $user->data_nascimento;
 
+        $this->user->load('roles');
         $this->selectedRoles = $user->roles->pluck('id')->toArray();
     }
 
@@ -64,8 +65,8 @@ class UserForm extends Form
     {
         $this->user->update($this->except(['user']));
 
-        $this->user->roles()->sync(1);
-        // $this->user->roles()->sync($this->selectedRoles);
+        // $this->user->roles()->sync(1);
+        $this->user->roles()->sync($this->selectedRoles);
 
         $this->reset();
     }
