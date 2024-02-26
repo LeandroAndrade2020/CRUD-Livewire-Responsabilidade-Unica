@@ -2,12 +2,11 @@
 
 namespace App\Livewire;
 
+use App\Livewire\Forms\UserForm;
 use App\Models\User;
-use Livewire\Component;
 use App\Traits\WithSorting;
 use Livewire\Attributes\On;
-use Livewire\WithPagination;
-use App\Livewire\Forms\UserForm;
+use Livewire\{Component, WithPagination};
 
 class UserTable extends Component
 {
@@ -27,15 +26,16 @@ class UserTable extends Component
     #[On('dispatch-user-delete-del')]
     public function render()
     {
-        return view('livewire.user-table', [
+        return view(
+            'livewire.user-table',
+            [
 
-            'data' => User::where('id', 'like', '%' . $this->form->id . '%')
-                ->where('name', 'like', '%' . $this->form->name . '%')
-                ->where('email', 'like', '%' . $this->form->email . '%')
-                ->orderBy($this->sortBy, $this->sortDirection)
-                ->paginate($this->paginate),
-        ]
-
-    );
+                'data' => User::where('id', 'like', '%' . $this->form->id . '%')
+                    ->where('name', 'like', '%' . $this->form->name . '%')
+                    ->where('email', 'like', '%' . $this->form->email . '%')
+                    ->orderBy($this->sortBy, $this->sortDirection)
+                    ->paginate($this->paginate),
+            ]
+        );
     }
 }

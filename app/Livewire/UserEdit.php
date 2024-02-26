@@ -2,11 +2,10 @@
 
 namespace App\Livewire;
 
-use App\Models\User;
-use Livewire\Component;
-use App\Livewire\UserTable;
-use Livewire\Attributes\On;
 use App\Livewire\Forms\UserForm;
+use App\Models\User;
+use Livewire\Attributes\On;
+use Livewire\Component;
 
 class UserEdit extends Component
 {

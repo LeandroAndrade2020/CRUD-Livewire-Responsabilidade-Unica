@@ -3,9 +3,8 @@
 namespace App\Livewire;
 
 use App\Models\User;
+use Livewire\Attributes\{Locked, On};
 use Livewire\Component;
-use Livewire\Attributes\On;
-use Livewire\Attributes\Locked;
 
 class UserDelete extends Component
 {

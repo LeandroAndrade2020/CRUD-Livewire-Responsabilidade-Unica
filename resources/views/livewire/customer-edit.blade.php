@@ -7,13 +7,13 @@
         <x-slot name="content">
             <div class="grid grid-cols-12 gap-4">
                 <div class="col-span-12">
-                    <x-ts-input label="Nome" name="name" wire:model="form.name" />
+                    <x-ts-input label="Nome" wire:model="form.name" />
                 </div>
                 <div class="col-span-12">
-                    <x-ts-input label="E-mail" name="email" wire:model="form.email" />
+                    <x-ts-input label="E-mail" wire:model="form.email" />
                 </div>
                 <div class="col-span-12">
-                    <x-ts-input label="Endereço" name="address" wire:model="form.address" />
+                    <x-ts-input label="Endereço" wire:model="form.address" />
                 </div>
                 <div class="col-span-12">
                     <x-ts-select.styled placeholder="Selecione.."

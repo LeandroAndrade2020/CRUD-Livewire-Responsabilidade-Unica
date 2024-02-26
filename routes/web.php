@@ -1,7 +1,6 @@
 <?php
 
-use App\Livewire\CustomerIndex;
-use App\Livewire\UserIndex;
+use App\Livewire\{CustomerIndex, UserIndex};
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
