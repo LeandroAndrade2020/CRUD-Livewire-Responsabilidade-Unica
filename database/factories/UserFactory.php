@@ -25,6 +25,7 @@ class UserFactory extends Factory
             'email_verified_at'         => now(),
             'password'                  => '$2y$10$CYDf53IaWuqWcjeSNfKxWOd7fy/flhk/ABjBzkIBGaPZCIjrqyU.a', // password
             'ultimo_acesso_at'          => $this->faker->dateTimeBetween('-4 week', 'now'),
+            'cpf'                       => $this->faker->unique()->cpf(),
             'two_factor_secret'         => null,
             'two_factor_recovery_codes' => null,
             'remember_token'            => Str::random(10),
