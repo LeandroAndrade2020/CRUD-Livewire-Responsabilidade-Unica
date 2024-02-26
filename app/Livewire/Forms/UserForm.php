@@ -2,9 +2,10 @@
 
 namespace App\Livewire\Forms;
 
-use App\Models\User;
-use Livewire\Attributes\Validate;
 use Livewire\Form;
+use App\Models\User;
+use App\Rules\Cpf;
+use Livewire\Attributes\Validate;
 
 class UserForm extends Form
 {
@@ -28,7 +29,7 @@ class UserForm extends Form
     #[Validate('required', as: 'matrícula')]
     public $matricula = '';
 
-    #[Validate('nullable', as: 'cpf')]
+    #[Validate(['nullable', 'string', new Cpf], as: 'cpf')]
     public $cpf = '';
 
     #[Validate('required|date', as: 'data de nascimento')]

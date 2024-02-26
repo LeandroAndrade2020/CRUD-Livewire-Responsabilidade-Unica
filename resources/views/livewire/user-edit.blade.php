@@ -4,7 +4,6 @@
             Form Edit User
         </x-slot>
         <x-slot name="content">
-{{-- @dump($form) --}}
 
             <div class="grid grid-cols-12 gap-4">
                 <div class="col-span-12">
