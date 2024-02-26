@@ -7,31 +7,48 @@
     <table class="min-w-full mt-2 divide-y divide-gray-200">
         <thead>
             <tr>
-                <th @click="$wire.sortField('id')" class="px-3 py-2 border cursor-pointer whitespace-nowrap border-spacing-1">
+                <x-table-th @click="$wire.sortField('id')" class="text-center">
                     <x-sort :$sortDirection :$sortBy :field="'id'"/>ID
-                </th>
-                <th @click="$wire.sortField('name')" class="px-3 py-2 border cursor-pointer whitespace-nowrap border-spacing-1">
-                    <x-sort :$sortDirection :$sortBy :field="'name'"/>Name
-                </th>
-                <th @click="$wire.sortField('email')" class="px-3 py-2 border cursor-pointer whitespace-nowrap border-spacing-1">
-                    <x-sort :$sortDirection :$sortBy :field="'email'"/>Email
-                </th>
-                <th class="px-3 py-2 border whitespace-nowrap border-spacing-1">Action</th>
+                </x-table-th>
+
+                <x-table-th @click="$wire.sortField('name')" >
+                    <x-sort :$sortDirection :$sortBy :field="'name'"/>Nome
+                </x-table-th>
+
+                <x-table-th @click="$wire.sortField('escola_id')" >
+                    <x-sort :$sortDirection :$sortBy :field="'escola_id'"/>Escola
+                </x-table-th>
+
+                <x-table-th @click="$wire.sortField('cargo_id')" >
+                    <x-sort :$sortDirection :$sortBy :field="'cargo_id'"/>Cargo
+                </x-table-th>
+
+                <x-table-th></x-table-th>
             </tr>
         </thead>
         <tbody>
             @isset($data)
                 @foreach ($data as $user)
                     <tr>
-                        <td class="px-3 py-2 text-center border whitespace-nowrap border-spacing-1">{{ $user->id }}</td>
-                        <td class="px-3 py-2 border whitespace-nowrap border-spacing-1">{{ $user->name }}</td>
-                        <td class="px-3 py-2 border whitespace-nowrap border-spacing-1">{{ $user->email }}</td>
-                        <td class="px-3 py-2 text-center border border-spacing-1">
-                            <x-ts-button @click="$dispatch('dispatch-user-table-edit', { id: '{{ $user->id}}' })"
-                                icon="pencil" color="secondary"  outline/>
-                            <x-ts-button @click="$dispatch('dispatch-user-table-delete', {id: '{{ $user->id }}', name: '{{ $user->name }}' })"
-                                icon="x-mark" color="red"  outline />
-                        </td>
+                        <x-table-td class="text-center">{{ $user->id }}</x-table-td>
+
+                        <x-table-td>
+                            <span>{{ $user->name }} - {{ $user->matricula }}</span><br>
+                            <span class="text-xs text-slate-500">{{ $user->email }}</span>
+                        </x-table-td>
+                        <x-table-td>{{ $user->escola->name }}</x-table-td>
+
+                        <x-table-td>{{ $user->cargo->name }}</x-table-td>
+
+                        <x-table-td class="text-center">
+
+                            <x-ts-button icon="pencil" color="secondary"  outline
+                            @click="$dispatch('dispatch-user-table-edit', { id: '{{ $user->id}}' })"/>
+
+                            <x-ts-button icon="x-mark" color="red"  outline
+                            @click="$dispatch('dispatch-user-table-delete', {id: '{{ $user->id }}', name: '{{ $user->name }}' })"/>
+
+                        </x-table-td>
                     </tr>
                 @endforeach
             @endisset

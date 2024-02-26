@@ -14,25 +14,25 @@ class UserForm extends Form
     public $id;
 
     #[Validate('required', as: 'nome')]
-    public $name;
+    public $name = '';
 
     #[Validate('required|email', as: 'e-mail')]
-    public $email;
+    public $email = '';
 
     #[Validate('required|integer', as: 'escola')]
-    public $escola_id;
+    public $escola_id = '';
 
-    #[Validate('required|integer', as: 'cargo')]
-    public $cargo_id;
+    #[Validate('required', as: 'cargo')]
+    public $cargo_id = '';
 
     #[Validate('required', as: 'matrícula')]
-    public $matricula;
+    public $matricula = '';
 
     #[Validate('nullable', as: 'cpf')]
-    public $cpf;
+    public $cpf = '';
 
     #[Validate('required|date', as: 'data de nascimento')]
-    public $data_nascimento;
+    public $data_nascimento = '';
 
     public function setUser(User $user) //Armazena ou Atualiza automaticamente preenche os campos
     {

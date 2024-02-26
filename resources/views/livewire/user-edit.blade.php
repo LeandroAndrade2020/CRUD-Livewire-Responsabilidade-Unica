@@ -4,7 +4,7 @@
             Form Edit User
         </x-slot>
         <x-slot name="content">
-
+{{-- @dump($form) --}}
             <x-ts-errors />
 
             <div class="grid grid-cols-12 gap-4">
@@ -15,12 +15,10 @@
                     <x-ts-input label="E-mail" wire:model="form.email" />
                 </div>
                 <div class="col-span-6">
-                    <x-ts-select.styled label="Escola" wire:model.live="form.escola_id"
-                        :request="route('api.escolas')" select="label:name|value:id" />
+                    <x-model-escolas />
                 </div>
                 <div class="col-span-6">
-                    <x-ts-select.styled label="Cargo" wire:model.live="form.cargo_id"
-                    :request="route('api.cargos')" select="label:name|value:id" />
+                    <x-model-cargos/>
                 </div>
                 <div class="col-span-6">
                     <x-ts-input label="Matrícula" wire:model="form.matricula" />
