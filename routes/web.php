@@ -18,6 +18,6 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('customer', CustomerIndex::class)->name('customer.index');
-    // Route::get('user', UserIndex::class)->name('user.index');
+    Route::get('user', UserIndex::class)->name('user.index');
 
 });

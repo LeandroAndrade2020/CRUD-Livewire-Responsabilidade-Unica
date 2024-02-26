@@ -19,9 +19,9 @@
                     <x-nav-link href="{{ route('customer.index') }}" wire:navigate :active="request()->routeIs('customer.index')">
                         {{ __('Clientes') }}
                     </x-nav-link>
-                    {{-- <x-nav-link href="{{ route('user.index') }}" wire:navigate :active="request()->routeIs('user.index')">
+                    <x-nav-link href="{{ route('user.index') }}" wire:navigate :active="request()->routeIs('user.index')">
                         {{ __('Users') }}
-                    </x-nav-link> --}}
+                    </x-nav-link>
                     @endcan
                 </div>
             </div>
