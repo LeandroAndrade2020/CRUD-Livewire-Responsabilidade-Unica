@@ -2,13 +2,16 @@
 
 namespace App\Livewire\Forms;
 
+use App\Rules\Cpf;
 use Livewire\Form;
 use App\Models\User;
-use App\Rules\Cpf;
 use Livewire\Attributes\Validate;
+use TallStackUi\Traits\Interactions;
 
 class UserForm extends Form
 {
+    use Interactions;
+
     public ?User $user;
 
     // #[Locked]
@@ -66,9 +69,9 @@ class UserForm extends Form
     {
         $this->user->update($this->except(['user']));
 
-        // $this->user->roles()->sync(1);
         $this->user->roles()->sync($this->selectedRoles);
 
         $this->reset();
+
     }
 }

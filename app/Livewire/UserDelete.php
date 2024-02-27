@@ -3,11 +3,14 @@
 namespace App\Livewire;
 
 use App\Models\User;
-use Livewire\Attributes\{Locked, On};
 use Livewire\Component;
+use TallStackUi\Traits\Interactions;
+use Livewire\Attributes\{Locked, On};
 
 class UserDelete extends Component
 {
+    use Interactions;
+    
     #[Locked]
     public $id;
 
@@ -34,8 +37,8 @@ class UserDelete extends Component
         $del = $user->destroy($this->id);
 
         ($del)
-        ? $this->dispatch('notify', title: 'success', message: 'Cadastro excluído com sucesso!')
-        : $this->dispatch('notify', title: 'fail', message: 'Cadastro não excluído!');
+        ? $this->toast()->success('Cadastro excluído com sucesso!')->send()
+        : $this->toast()->error('Cadastro não excluído!')->send();
 
         $this->modalDelete = false;
 

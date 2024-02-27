@@ -2,11 +2,14 @@
 
 namespace App\Livewire;
 
-use App\Livewire\Forms\UserForm;
 use Livewire\Component;
+use App\Livewire\Forms\UserForm;
+use TallStackUi\Traits\Interactions;
 
 class UserCreate extends Component
 {
+    use Interactions;
+
     public UserForm $form;
 
     public $modalCreate = false;
@@ -18,8 +21,8 @@ class UserCreate extends Component
         $dados = $this->form->store();
 
         is_null($dados)
-        ? $this->dispatch('notify', title: 'success', message: 'Cadastro realizado com sucesso!')
-        : $this->dispatch('notify', title: 'fail', message: 'Cadastro não efetivado!');
+        ? $this->toast()->success('Cadastro realizado com sucesso!')->send()
+        : $this->toast()->error('Cadastro não atualizado!')->send();
 
         $this->dispatch('dispatch-User-create-save')->to(UserTable::class);
 

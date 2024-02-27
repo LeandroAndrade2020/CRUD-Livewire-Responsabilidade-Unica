@@ -7,12 +7,14 @@ use App\Traits\WithSorting;
 use Livewire\Attributes\On;
 use App\Livewire\Forms\UserForm;
 use Illuminate\Support\Facades\Hash;
+use TallStackUi\Traits\Interactions;
 use Livewire\{Component, WithPagination};
 
 class UserTable extends Component
 {
     use WithPagination;
     use WithSorting;
+    use Interactions;
 
     public UserForm $form;
 
@@ -44,6 +46,8 @@ class UserTable extends Component
         $user->password = Hash::make('Atividade1!');
 
         $user->save();
+
+        $this->toast()->success('Senha redefinida para Atividade1!')->send();
     }
 
 }

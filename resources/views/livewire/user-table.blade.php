@@ -1,5 +1,4 @@
 <div>
-    {{-- @dump($data) --}}
     <div class="flex justify-between mb-2 -mt-2">
         <x-ts-input wire:model.blur="form.name" placeholder="Pesquisar.." class=""/>
         <livewire:user-create />
