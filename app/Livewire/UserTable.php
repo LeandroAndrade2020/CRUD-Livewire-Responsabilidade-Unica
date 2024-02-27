@@ -2,10 +2,12 @@
 
 namespace App\Livewire;
 
-use App\Livewire\Forms\UserForm;
 use App\Models\User;
 use App\Traits\WithSorting;
 use Livewire\Attributes\On;
+use App\Livewire\Forms\UserForm;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Livewire\{Component, WithPagination};
 
 class UserTable extends Component
@@ -26,8 +28,7 @@ class UserTable extends Component
     #[On('dispatch-user-delete-del')]
     public function render()
     {
-        return view(
-            'livewire.user-table',
+        return view('livewire.user-table',
             [
 
                 'data' => User::where('id', 'like', '%' . $this->form->id . '%')
@@ -37,5 +38,28 @@ class UserTable extends Component
                     ->paginate($this->paginate),
             ]
         );
+    }
+
+    public function resetPassword()
+    {
+        $user = Auth::user();
+
+        $user->password = Hash::make('nova_senha');
+
+        $user->save();
+
+        session()->flash('message', 'Senha redefinida com sucesso!');
+    }
+
+    public function resetarSenha(User $user)
+    {
+
+        $password = 'Atividade1!';
+
+        $user->forceFill([
+            'password' => Hash::make($password),
+        ]);
+        $user->save();
+        // LogService::sendResetPasswordLog($user->id, $user->name);
     }
 }
