@@ -6,7 +6,6 @@ use App\Models\User;
 use App\Traits\WithSorting;
 use Livewire\Attributes\On;
 use App\Livewire\Forms\UserForm;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\{Component, WithPagination};
 
@@ -40,26 +39,11 @@ class UserTable extends Component
         );
     }
 
-    public function resetPassword()
+    public function resetPassword(User $user)
     {
-        $user = Auth::user();
-
-        $user->password = Hash::make('nova_senha');
+        $user->password = Hash::make('Atividade1!');
 
         $user->save();
-
-        session()->flash('message', 'Senha redefinida com sucesso!');
     }
 
-    public function resetarSenha(User $user)
-    {
-
-        $password = 'Atividade1!';
-
-        $user->forceFill([
-            'password' => Hash::make($password),
-        ]);
-        $user->save();
-        // LogService::sendResetPasswordLog($user->id, $user->name);
-    }
 }

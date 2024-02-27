@@ -45,9 +45,7 @@
                             <x-ts-button icon="pencil" color="secondary"  outline
                             @click="$dispatch('dispatch-user-table-edit', { id: '{{ $user->id}}' })"/>
 
-                            <x-ts-button icon="finger-print" color="teal"  outline href="{{ route('password.reset', $user->id) }}"/>
-
-                                <button wire:click="resetPassword">Redefinir Senha</button>
+                            <x-ts-button icon="finger-print" color="teal"  outline wire:click="resetPassword({{ $user->id }})"/>
 
                             <x-ts-button icon="x-mark" color="red"  outline
                             @click="$dispatch('dispatch-user-table-delete', {id: '{{ $user->id }}', name: '{{ $user->name }}' })"/>
