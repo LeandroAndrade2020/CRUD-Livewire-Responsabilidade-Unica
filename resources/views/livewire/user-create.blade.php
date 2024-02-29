@@ -10,6 +10,7 @@
         <x-slot name="content">
 
             <div class="grid grid-cols-12 gap-4">
+                
                 <div class="col-span-12">
                     <x-ts-errors />
                 </div>
