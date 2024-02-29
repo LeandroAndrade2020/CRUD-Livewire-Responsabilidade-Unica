@@ -1,7 +1,11 @@
                     {{-- <x-ts-select.styled label="Escola" wire:model.live="form.escola_id"
                         :request="route('api.escolas')" select="label:name|value:id" /> --}}
+@props([
+    'label' => null,
+    'campo' => null,
+])
 
-<x-ts-select.styled placeholder="Selecione.." label="Escola" wire:model="form.escola_id"
+<x-ts-select.styled placeholder="Selecione.." label="{{ $label }}" wire:model="{{ $campo }}"
     select="label:label|value:value" :options="[
                         ['label' => 'Adolfina Leonor Soares Dos Santos', 'value' => 1],
                         ['label' => 'Adriana Aparecida Cassiano', 'value' => 2],

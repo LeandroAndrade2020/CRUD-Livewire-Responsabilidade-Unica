@@ -28,8 +28,8 @@ class CustomerEdit extends Component
         $dados = $this->form->update();
 
         is_null($dados)
-        ? $this->dispatch('notify', title: 'success', message: 'Cadastro atualizado com sucesso!')
-        : $this->dispatch('notify', title: 'fail', message: 'Cadastro não atualizado!');
+        ? $this->toast()->success('Cadastro atualizado com sucesso!')->send()
+        : $this->toast()->error('Cadastro não atualizado!')->send();
 
         $this->dispatch('dispatch-customer-create-edit')->to(CustomerTable::class);
 

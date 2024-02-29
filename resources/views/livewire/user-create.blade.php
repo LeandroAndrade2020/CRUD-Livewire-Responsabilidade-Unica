@@ -21,7 +21,7 @@
                     <x-ts-input label="E-mail" wire:model="form.email" />
                 </div>
                 <div class="col-span-6">
-                    <x-model-escolas />
+                    <x-model-escolas label="Escola" campo="form.escola_id"/>
                 </div>
                 <div class="col-span-6">
                     <x-model-cargos/>

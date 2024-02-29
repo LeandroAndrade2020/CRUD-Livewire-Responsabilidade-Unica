@@ -30,8 +30,8 @@ class CustomerDelete extends Component
         $del = Customer::destroy($this->id);
 
         ($del)
-        ? $this->dispatch('notify', title: 'success', message: 'Cadastro excluído com sucesso!')
-        : $this->dispatch('notify', title: 'fail', message: 'Cadastro não excluído!');
+        ? $this->toast()->success('Cadastro excluído com sucesso!')->send()
+        : $this->toast()->error('Cadastro não excluído!')->send();
 
         $this->modalCustomerDelete = false;
 

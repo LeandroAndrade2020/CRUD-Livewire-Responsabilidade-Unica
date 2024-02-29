@@ -36,8 +36,7 @@ class UserActivityIndex extends Component
 
         $escolas = Escola::get(['id', 'name']);
 
-        return view(
-            'livewire.user-activity-index',
+        return view('livewire.user-activity-index',
             compact('users', 'escolas')
         );
     }

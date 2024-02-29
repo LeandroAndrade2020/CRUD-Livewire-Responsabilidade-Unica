@@ -9,6 +9,8 @@
 
             <livewire:user-table />
 
+
+
         </div>
     </div>
 </div>

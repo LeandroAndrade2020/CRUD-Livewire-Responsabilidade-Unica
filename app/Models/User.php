@@ -87,4 +87,44 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Cargo::class);
     }
+
+    public function scopePesquisa($query, $pesquisa)
+    {
+        if ($pesquisa === '') {
+            return;
+        }
+
+        return $query
+            ->orWhere('id', 'LIKE', "%{$pesquisa}%")
+            ->orWhere('name', 'LIKE', "%{$pesquisa}%")
+            ->orWhere('escola_id', 'LIKE', "%{$pesquisa}%")
+            ->orWhere('email', 'LIKE', "%{$pesquisa}%");
+    }
+
+    public function scopeName($query, $name)
+    {
+        if ($name === null or $name === '') {
+            return;
+        }
+
+        return $query->whereName($name);
+    }
+
+    public function scopeEmail($query, $email)
+    {
+        if ($email === null or $email === '') {
+            return;
+        }
+
+        return $query->whereEmail($email);
+    }
+
+    public function scopeEscola_id($query, $escola_id)
+    {
+        if (!empty($escola_id)) {
+            $query->where('escola_id', $escola_id);
+        }
+
+        return $query;
+    }
 }

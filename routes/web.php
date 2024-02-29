@@ -1,7 +1,7 @@
 <?php
 
+use App\Livewire\UserActivityIndex;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserPasswordReset;
 use App\Livewire\{CustomerIndex, UserIndex};
 
 Route::get('/', function () {
@@ -19,7 +19,5 @@ Route::middleware([
 
     Route::get('customer', CustomerIndex::class)->name('customer.index');
     Route::get('user', UserIndex::class)->name('user.index');
-
-    Route::any('password/reset', [UserPasswordReset::class, 'resetarSenha'])->name('password.reset');
-
+    Route::get('users-acrtivity', UserActivityIndex::class)->name('users-activity-index');
 });
