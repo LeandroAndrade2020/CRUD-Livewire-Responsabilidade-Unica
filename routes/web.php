@@ -1,8 +1,7 @@
 <?php
 
-use App\Livewire\UserActivityIndex;
+use App\Livewire\{Customer, User};
 use Illuminate\Support\Facades\Route;
-use App\Livewire\{Customer, UserIndex};
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,6 +17,7 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('customer', Customer\Index::class)->name('customer.index');
-    Route::get('user', UserIndex::class)->name('user.index');
-    Route::get('users-acrtivity', UserActivityIndex::class)->name('users-activity-index');
+    Route::get('users-acrtivity', User\ActivityIndex::class)->name('users.activity.index');
+
+    Route::get('user', User\Index::class)->name('user.index');
 });

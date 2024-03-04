@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\User;
 
 use App\Models\{Escola, User};
 use Livewire\Attributes\Url;
 use Livewire\{Component, WithPagination};
 
-class UserActivityIndex extends Component
+class ActivityIndex extends Component
 {
     use WithPagination;
 
@@ -36,7 +36,8 @@ class UserActivityIndex extends Component
 
         $escolas = Escola::get(['id', 'name']);
 
-        return view('livewire.user-activity-index',
+        return view(
+            'livewire.user.activity-index',
             compact('users', 'escolas')
         );
     }

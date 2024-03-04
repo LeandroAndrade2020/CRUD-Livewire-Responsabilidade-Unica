@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\User;
 
-use Livewire\Component;
 use App\Livewire\Forms\UserForm;
+use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class UserCreate extends Component
+class Create extends Component
 {
     use Interactions;
 
@@ -24,13 +24,12 @@ class UserCreate extends Component
         ? $this->toast()->success('Cadastro realizado com sucesso!')->send()
         : $this->toast()->error('Cadastro não atualizado!')->send();
 
-        $this->dispatch('dispatch-User-create-save')->to(UserTable::class);
+        $this->dispatch('dispatch-User-create-save')->to(Table::class);
 
         $this->modalCreate = false;
     }
-
     public function render()
     {
-        return view('livewire.user-create');
+        return view('livewire.user.create');
     }
 }

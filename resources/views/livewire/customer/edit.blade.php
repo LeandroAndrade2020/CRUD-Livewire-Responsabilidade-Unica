@@ -49,7 +49,7 @@
             </x-secondary-button>
 
             <x-button class="ms-3" wire:loading.attr="disabled">
-                {{ __('Update') }}
+                {{ __('Atualizar') }}
             </x-button>
         </x-slot>
     </x-dialog-modal>

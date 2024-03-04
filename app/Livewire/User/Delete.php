@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\User;
 
 use App\Models\User;
+use Livewire\Attributes\{Locked, On};
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
-use Livewire\Attributes\{Locked, On};
 
-class UserDelete extends Component
+class Delete extends Component
 {
     use Interactions;
-    
+
     #[Locked]
     public $id;
 
@@ -42,10 +42,10 @@ class UserDelete extends Component
 
         $this->modalDelete = false;
 
-        $this->dispatch('dispatch-user-delete-del')->to(UserTable::class);
+        $this->dispatch('dispatch-user-delete-del')->to(Table::class);
     }
     public function render()
     {
-        return view('livewire.user-delete');
+        return view('livewire.user.delete');
     }
 }

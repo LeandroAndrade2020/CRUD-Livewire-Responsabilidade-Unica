@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\User;
 
-use App\Models\Role;
-use App\Models\User;
-use Livewire\Component;
-use Livewire\Attributes\On;
 use App\Livewire\Forms\UserForm;
+use App\Models\{Role, User};
+use Livewire\Attributes\On;
+use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class UserEdit extends Component
+class Edit extends Component
 {
     use Interactions;
 
@@ -37,7 +36,7 @@ class UserEdit extends Component
         ? $this->toast()->success('Cadastro atualizado com sucesso!')->send()
         : $this->toast()->error('Cadastro não atualizado!')->send();
 
-        $this->dispatch('dispatch-user-create-edit')->to(UserTable::class);
+        $this->dispatch('dispatch-user-create-edit')->to(Table::class);
 
         $this->modalEdit = false;
     }
@@ -47,7 +46,7 @@ class UserEdit extends Component
 
         $user = User::find($this->user);
 
-        return view('livewire.user-edit', [
+        return view('livewire.user.edit', [
             'roles' => $roles,
             'user'  => $user,
         ]);

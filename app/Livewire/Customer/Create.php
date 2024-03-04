@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Customer;
 
+use App\Livewire\Forms\CustomerForm;
 use Customer\Table;
 use Livewire\Component;
-use App\Livewire\Forms\CustomerForm;
 use TallStackUi\Traits\Interactions;
 
 class Create extends Component

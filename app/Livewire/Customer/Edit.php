@@ -2,11 +2,11 @@
 
 namespace App\Livewire\Customer;
 
-use Customer\Table;
-use Livewire\Component;
-use App\Models\Customer;
-use Livewire\Attributes\On;
 use App\Livewire\Forms\CustomerForm;
+use App\Models\Customer;
+use Customer\Table;
+use Livewire\Attributes\On;
+use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
 class Edit extends Component

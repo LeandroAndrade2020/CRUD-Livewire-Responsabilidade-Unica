@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\User;
 
+use App\Livewire\Forms\UserForm;
 use App\Models\User;
 use App\Traits\WithSorting;
 use Livewire\Attributes\On;
-use App\Livewire\Forms\UserForm;
-use Illuminate\Support\Facades\Hash;
-use TallStackUi\Traits\Interactions;
 use Livewire\{Component, WithPagination};
+use TallStackUi\Traits\Interactions;
 
-class UserTable extends Component
+class Table extends Component
 {
     use WithPagination;
     use WithSorting;
@@ -29,7 +28,8 @@ class UserTable extends Component
     #[On('dispatch-user-delete-del')]
     public function render()
     {
-        return view('livewire.user-table',
+        return view(
+            'livewire.user.table',
             [
 
                 'data' => User::where('id', 'like', '%' . $this->form->id . '%')
@@ -40,14 +40,4 @@ class UserTable extends Component
             ]
         );
     }
-
-    public function resetPassword(User $user)
-    {
-        $user->password = Hash::make('Atividade1!');
-
-        $user->save();
-
-        $this->toast()->success('Senha redefinida para Atividade1!')->send();
-    }
-
 }

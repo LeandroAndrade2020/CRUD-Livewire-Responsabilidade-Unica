@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     @can('admin_access')
-                    <x-nav-link href="{{ route('users-activity-index') }}" :active="request()->routeIs('users-activity-index')">
+                    <x-nav-link href="{{ route('users.activity.index') }}" :active="request()->routeIs('users.activity.index')">
                         {{ __('Acessos') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('customer.index') }}" wire:navigate :active="request()->routeIs('customer.index')">

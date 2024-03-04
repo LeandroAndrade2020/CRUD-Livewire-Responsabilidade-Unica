@@ -1,7 +1,6 @@
 <?php
 
-use App\Models\Cargo;
-use App\Models\Escola;
+use App\Models\{Cargo, Escola};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -58,4 +57,3 @@ Route::get('/cargos', function (Request $request) {
         // mapping to the expected format
         ->map(fn (Cargo $cargo) => $cargo->only('id', 'name'));
 })->name('api.cargos');
-

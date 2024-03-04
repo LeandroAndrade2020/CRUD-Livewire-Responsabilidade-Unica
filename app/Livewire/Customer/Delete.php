@@ -2,11 +2,11 @@
 
 namespace App\Livewire\Customer;
 
-use Customer\Table;
-use Livewire\Component;
 use App\Models\Customer;
-use TallStackUi\Traits\Interactions;
+use Customer\Table;
 use Livewire\Attributes\{Locked, On};
+use Livewire\Component;
+use TallStackUi\Traits\Interactions;
 
 class Delete extends Component
 {
