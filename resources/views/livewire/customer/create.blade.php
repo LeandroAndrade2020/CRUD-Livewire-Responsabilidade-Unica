@@ -1,7 +1,10 @@
 <div>
-    <x-dialog-modal wire:model.live="modalCustomerEdit" submit="edit">
+    {{-- @dump($dados) --}}
+    <x-ts-button @click="$wire.set('modalCreate', true)" color="secondary">+</x-ts-button>
+
+    <x-dialog-modal wire:model="modalCreate" submit="save">
         <x-slot name="title">
-            Form Edit Customer
+            Form Customer
         </x-slot>
 
         <x-slot name="content">
@@ -12,13 +15,13 @@
                 </div>
 
                 <div class="col-span-12">
-                    <x-ts-input label="Nome" wire:model="form.name" />
+                    <x-ts-input label="Nome" name="name" wire:model="form.name" />
                 </div>
                 <div class="col-span-12">
-                    <x-ts-input label="E-mail" wire:model="form.email" />
+                    <x-ts-input label="E-mail" name="email" wire:model="form.email" />
                 </div>
                 <div class="col-span-12">
-                    <x-ts-input label="Endereço" wire:model="form.address" />
+                    <x-ts-input label="Endereço" name="address" wire:model="form.address" />
                 </div>
                 <div class="col-span-12">
                     <x-ts-select.styled placeholder="Selecione.."
@@ -39,17 +42,17 @@
                             ['label' => 'Solicitado Estagiário', 'value' => 12],
                             ['label' => 'Solicitado Interprete de LIBRAS ', 'value' => 13],
                         ]" />
-                        {{-- @dump($form->apoios) --}}
                 </div>
             </div>
         </x-slot>
+
         <x-slot name="footer">
-            <x-secondary-button @click="$wire.set('modalCustomerEdit', false)" wire:loading.attr="disabled">
+            <x-secondary-button @click="$wire.set('modalCreate', false)" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
             </x-secondary-button>
 
             <x-button class="ms-3" wire:loading.attr="disabled">
-                {{ __('Update') }}
+                {{ __('Save') }}
             </x-button>
         </x-slot>
     </x-dialog-modal>

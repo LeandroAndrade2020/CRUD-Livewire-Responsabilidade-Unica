@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Customer;
 
 use Illuminate\View\View;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class CustomerIndex extends Component
+class Index extends Component
 {
     #[Title('Customer')]
     public function render(): View
     {
-        return view('livewire.customer-index');
+        return view('livewire.customer.index');
     }
 }

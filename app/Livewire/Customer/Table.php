@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Customer;
 
 use App\Livewire\Forms\CustomerForm;
 use App\Models\Customer;
@@ -8,7 +8,7 @@ use App\Traits\WithSorting;
 use Livewire\Attributes\On;
 use Livewire\{Component, WithPagination};
 
-class CustomerTable extends Component
+class Table extends Component
 {
     use WithPagination;
     use WithSorting;
@@ -26,7 +26,7 @@ class CustomerTable extends Component
     #[On('dispatch-customer-delete-del')]
     public function render()
     {
-        return view('livewire.customer-table', [
+        return view('livewire.customer.table', [
 
             'data' => Customer::where('id', 'like', '%' . $this->form->id . '%')
                 ->where('name', 'like', '%' . $this->form->name . '%')

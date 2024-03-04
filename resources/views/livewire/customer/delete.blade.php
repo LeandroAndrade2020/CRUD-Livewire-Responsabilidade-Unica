@@ -1,5 +1,5 @@
 <div>
-    <x-dialog-modal wire:model.live="modalCustomerDelete">
+    <x-dialog-modal wire:model.live="modalDelete">
         <x-slot name="title">
             Form Delete Customer
         </x-slot>
@@ -9,7 +9,7 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-secondary-button @click="$wire.set('modalCustomerDelete', false)" wire:loading.attr="disabled">
+            <x-secondary-button @click="$wire.set('modalDelete', false)" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
             </x-secondary-button>
 

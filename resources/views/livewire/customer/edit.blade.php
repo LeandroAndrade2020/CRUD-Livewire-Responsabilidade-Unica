@@ -1,10 +1,7 @@
 <div>
-    {{-- @dump($dados) --}}
-    <x-ts-button @click="$wire.set('modalCustomerCreate', true)" color="secondary">+</x-ts-button>
-
-    <x-dialog-modal wire:model="modalCustomerCreate" submit="save">
+    <x-dialog-modal wire:model.live="modalEdit" submit="edit">
         <x-slot name="title">
-            Form Customer
+            Form Edit Customer
         </x-slot>
 
         <x-slot name="content">
@@ -13,15 +10,15 @@
                 <div class="col-span-12">
                     <x-ts-errors />
                 </div>
-                
+
                 <div class="col-span-12">
-                    <x-ts-input label="Nome" name="name" wire:model="form.name" />
+                    <x-ts-input label="Nome" wire:model="form.name" />
                 </div>
                 <div class="col-span-12">
-                    <x-ts-input label="E-mail" name="email" wire:model="form.email" />
+                    <x-ts-input label="E-mail" wire:model="form.email" />
                 </div>
                 <div class="col-span-12">
-                    <x-ts-input label="Endereço" name="address" wire:model="form.address" />
+                    <x-ts-input label="Endereço" wire:model="form.address" />
                 </div>
                 <div class="col-span-12">
                     <x-ts-select.styled placeholder="Selecione.."
@@ -42,17 +39,17 @@
                             ['label' => 'Solicitado Estagiário', 'value' => 12],
                             ['label' => 'Solicitado Interprete de LIBRAS ', 'value' => 13],
                         ]" />
+                        {{-- @dump($form->apoios) --}}
                 </div>
             </div>
         </x-slot>
-
         <x-slot name="footer">
-            <x-secondary-button @click="$wire.set('modalCustomerCreate', false)" wire:loading.attr="disabled">
+            <x-secondary-button @click="$wire.set('modalEdit', false)" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
             </x-secondary-button>
 
             <x-button class="ms-3" wire:loading.attr="disabled">
-                {{ __('Save') }}
+                {{ __('Update') }}
             </x-button>
         </x-slot>
     </x-dialog-modal>

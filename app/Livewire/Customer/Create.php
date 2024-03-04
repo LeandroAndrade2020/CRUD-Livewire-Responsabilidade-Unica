@@ -1,15 +1,19 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Customer;
 
-use App\Livewire\Forms\CustomerForm;
+use Customer\Table;
 use Livewire\Component;
+use App\Livewire\Forms\CustomerForm;
+use TallStackUi\Traits\Interactions;
 
-class CustomerCreate extends Component
+class Create extends Component
 {
+    use Interactions;
+
     public CustomerForm $form;
 
-    public $modalCustomerCreate = false;
+    public $modalCreate = false;
 
     public function save()
     {
@@ -21,13 +25,13 @@ class CustomerCreate extends Component
         ? $this->toast()->success('Cadastro realizado com sucesso!')->send()
         : $this->toast()->error('Cadastro não atualizado!')->send();
 
-        $this->dispatch('dispatch-customer-create-save')->to(CustomerTable::class);
+        $this->dispatch('dispatch-customer-create-save')->to(Table::class);
 
-        $this->modalCustomerCreate = false;
+        $this->modalCreate = false;
     }
 
     public function render()
     {
-        return view('livewire.customer-create');
+        return view('livewire.customer.create');
     }
 }
